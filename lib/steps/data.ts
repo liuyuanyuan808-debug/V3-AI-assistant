@@ -54,10 +54,6 @@ export const STEPS: Step[] = [
         frameHeight: 250,
         slides: [
           {
-            image: `${V3}/step-02-clean-overview.png`,
-            caption: '清洁与消毒说明。',
-          },
-          {
             image: `${V3}/step-02-clean-part.png`,
             caption: '需清洁部件：奶碗、法兰、鸭嘴阀、硅胶塞（如适用）。',
           },
