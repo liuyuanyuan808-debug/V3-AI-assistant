@@ -6,7 +6,7 @@ import { TIP_INDEX } from '@/lib/steps/data';
 import { FloatingCozyBtn } from '@/components/step/FloatingCozyBtn';
 
 /**
- * Tips index — 7 topic cards on top of a hero, plus the floating "Ask CozyAI"
+ * Tips index — V3 topic cards on top of a hero, plus the floating assistant
  * button anchored to the bottom edge.
  */
 export function TipsIndex() {
@@ -33,13 +33,13 @@ export function TipsIndex() {
         <div className="flex flex-col items-center mb-4">
           <img
             src="/images/welcome-hero.png"
-            alt="Air One tips"
+            alt="V3 使用提示"
             draggable={false}
             className="w-40 h-auto mt-2"
             onError={(e) => ((e.currentTarget.style.display = 'none'))}
           />
           <h1 className="font-denton text-[28px] leading-[140%] text-text-1 text-center mt-2">
-            Get the most from Air One
+            V3 使用提示
           </h1>
         </div>
 

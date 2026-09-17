@@ -1,4 +1,4 @@
-// Shape of one step in the Air One setup flow. Same schema is reused by
+// Shape of one step in the V3 setup flow. Same schema is reused by
 // tipsStep (a "tip" is just a step viewed outside the sequential flow).
 
 export type TipIcon = 'question' | 'alert';

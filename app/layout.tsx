@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Momcozy Air One',
-  description: 'Setup guide and CozyAI assistant for the Momcozy Air One wearable breast pump.',
-  applicationName: 'Momcozy Air One',
+  title: 'Momcozy V3 AI 助手',
+  description: 'Momcozy V3 设备设置与使用助手。',
+  applicationName: 'Momcozy V3 AI 助手',
   appleWebApp: {
     capable: true,
     title: 'Momcozy',

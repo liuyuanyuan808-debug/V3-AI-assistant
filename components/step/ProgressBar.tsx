@@ -9,7 +9,7 @@ interface Props {
 }
 
 /**
- * Thin horizontal 7-segment progress bar. Matches vanilla `.step-progress-bar`:
+ * Thin horizontal segmented progress bar. Matches vanilla `.step-progress-bar`:
  *   • 3px height, 4px gap, 2px radius
  *   • Empty = #F5C8CE (pink)
  *   • Done or Current = #4A0612 (dark red)
@@ -17,7 +17,7 @@ interface Props {
  */
 export function ProgressBar({
   currentStep,
-  total = 7,
+  total = 5,
   hrefFor = (s) => `/setup/${s}`,
 }: Props) {
   return (
@@ -30,7 +30,7 @@ export function ProgressBar({
             key={step}
             href={hrefFor(step)}
             role="button"
-            aria-label={`Go to step ${step}`}
+            aria-label={`前往第 ${step} 步`}
             className="flex-1 relative"
             style={{
               height: 3,

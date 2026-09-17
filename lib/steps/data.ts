@@ -1,200 +1,162 @@
 import type { Step } from './types';
 
-// Source of truth for the 7-step setup + tips. Migrated 1:1 from the vanilla
-// project's `STEPS` array in index.html. Keep tips ordered — tip index i
-// corresponds to /tips/(i+1).
+const V3 = '/images/steps/v3';
 
+// Content source: Feishu document "V3设备助手-步骤详情" (revision 527).
 export const STEPS: Step[] = [
   {
     num: 1,
-    title: 'Unbox & Inspect',
-    subtitle: 'Confirm all accessories are included',
-    videoTitle: 'Unbox & Inspect',
-    videoSub:
-      '1. Open the box carefully and lay out all parts. Verify each accessory against the checklist before continuing.',
+    title: '选择正确的法兰尺寸',
+    subtitle: '测量乳头直径，适配最佳法兰尺寸',
+    videoTitle: '',
+    videoSub: '',
     tips: [
       {
         type: 'image',
-        icon: 'question',
-        title: "What's in the box",
-        body:
-          "Inside the box, you'll find your Air One pump units, charging accessories, flange inserts, sizing tools, and setup guides.\nPlace all components on a clean surface and confirm everything is included before setup.",
-        image: '/images/steps/01-unbox-inspect/tips1.png',
+        icon: 'alert',
+        title: '请勿跳过乳头测量',
+        body: '合适的法兰可最大限度地提高吸奶量，防止乳头损伤，并确保高效吸奶。',
+        image: `${V3}/step-01-flange-guide-cropped.png`,
       },
       {
-        type: 'text',
-        icon: 'alert',
-        title: 'Missing or damaged parts?',
-        body:
-          'If any part is missing or appears damaged, please contact Momcozy Support.\nHaving your order number ready will help us assist you faster.\n• WhatsApp: +1 (619) 848-0676\n• Email: support@momcozy.com.',
+        type: 'image',
+        icon: 'question',
+        title: '乳头尺码卡',
+        body: '使用乳头测量卡确认乳头直径，并根据对应范围选择合适的法兰尺寸。合适的尺寸有助于减少摩擦和拉扯不适，也能提升吸奶效率。',
+        image: `${V3}/step-01-flange-size.png`,
       },
     ],
   },
   {
     num: 2,
-    title: 'Measure Flange Size',
-    subtitle: 'Find the size that fits you',
-    videoTitle: 'Measure Flange Size',
-    videoSub:
-      '2. Measure your nipple diameter and match it to the correct flange size.',
+    title: '清洁部件',
+    subtitle: '建议使用温和清洁剂和清水清洁',
+    videoTitle: '',
+    videoSub: '',
     tips: [
       {
-        type: 'image',
+        type: 'carousel',
         icon: 'question',
-        title: 'Sizing guide',
-        body:
-          'Use the included measuring tool to measure the base of your nipple — not the areola. Measure after stimulation when the nipple is fully extended for the most accurate result.\nA correct fit allows the nipple to move freely in the tunnel without rubbing or pulling too much areola inside.',
-        image: '/images/steps/02-measure-flange/step2tips2.png',
+        title: '拆卸部件',
+        sharedIntro: '请按以下步骤依次拆卸吸奶器各组件。',
+        frameHeight: 220,
+        slides: [
+          { image: `${V3}/step-02-disassemble-1.png`, caption: '将导管与奶碗分离。' },
+          { image: `${V3}/step-02-disassemble-2.png`, caption: '将法兰从奶碗上拆下。' },
+          { image: `${V3}/step-02-disassemble-3.png`, caption: '将鸭嘴阀与法兰分离。' },
+        ],
       },
       {
-        type: 'image',
-        icon: 'question',
-        title: 'Choose your flange size',
-        body:
-          'Match your measurement to the closest flange insert size. If you are between sizes, start with the smaller option.',
-        warning:
-          'Your nipple size may change over time with regular pumping or different stages of breastfeeding. Re-measuring occasionally can help maintain a comfortable and effective fit.',
-        image: '/images/steps/02-measure-flange/step2tips3.png',
+        type: 'carousel',
+        icon: 'alert',
+        title: '建议清洁方法',
+        sharedIntro: '使用温和清洁剂和清水清洁。',
+        frameHeight: 250,
+        slides: [
+          {
+            image: `${V3}/step-02-clean-overview.png`,
+            caption: '清洁与消毒说明。',
+          },
+          {
+            image: `${V3}/step-02-clean-part.png`,
+            caption: '需清洁部件：奶碗、法兰、鸭嘴阀、硅胶塞（如适用）。',
+          },
+          {
+            image: `${V3}/step-02-clean-method.png`,
+            caption: '建议清洁方法：使用温和清洁剂和清水清洁。',
+          },
+          {
+            image: `${V3}/step-02-sterilize.png`,
+            caption: '消毒：蒸汽消毒 10 分钟。如使用锅具煮水消毒，请将部件煮沸 3-5 分钟，每周消毒 1-2 次。',
+          },
+        ],
       },
     ],
   },
   {
     num: 3,
-    title: 'Disassemble Parts',
-    subtitle: 'Take it apart in order',
-    videoTitle: 'Disassemble Parts',
-    videoSub:
-      '3. Detach the flange, milk collector, diaphragm, and valve in the order shown.',
+    title: '组装',
+    subtitle: '组装前，请确保所有部件均已完全干燥',
+    videoTitle: '',
+    videoSub: '',
     tips: [
       {
         type: 'carousel',
         icon: 'question',
-        title: 'Disassembly sequence',
-        sharedIntro:
-          'Follow the steps below to safely separate the washable parts from the motor unit before cleaning.',
-        frameHeight: 173,
+        title: '组装部件',
+        frameHeight: 220,
         slides: [
-          { image: '/images/steps/03-disassemble/step3tips1.png', caption: 'Detach the flange from the pump motor' },
-          { image: '/images/steps/03-disassemble/step3tips2.png', caption: 'Hold the protruding part and separate the milk collector from the main unit' },
-          { image: '/images/steps/03-disassemble/step3tips3.png', caption: 'Remove the suction cup from the milk collector' },
-          { image: '/images/steps/03-disassemble/step3tips4.png', caption: 'Disassemble the milk collector' },
-          { image: '/images/steps/03-disassemble/step3tips5.png', caption: 'Separate the valve' },
+          { image: `${V3}/step-03-assemble-1.png`, caption: '将鸭嘴阀安装至法兰。' },
+          { image: `${V3}/step-03-assemble-2.png`, caption: '将法兰与奶碗组装在一起，确保边缘处牢固扣合。' },
+          { image: `${V3}/step-03-assemble-3.png`, caption: '将导管连接至奶碗。' },
         ],
+      },
+      {
+        type: 'carousel',
+        icon: 'alert',
+        title: '将各部件连接至主机',
+        frameHeight: 220,
+        slides: [
+          { image: `${V3}/step-03-host-1.png`, caption: '打开主机正面底部的导管接口盖。' },
+          { image: `${V3}/step-03-host-2.png`, caption: '将导管连接器插入主机接口，确保安装正确。' },
+          { image: `${V3}/step-03-host-3.png`, caption: '组装完成。' },
+        ],
+      },
+      {
+        type: 'image',
+        icon: 'alert',
+        title: '连接电源适配器',
+        body: '请仅使用 Momcozy V3 专用适配器。使用其他适配器可能导致产品故障。',
+        image: `${V3}/step-03-power.png`,
       },
     ],
   },
   {
     num: 4,
-    title: 'Clean & Sanitize',
-    subtitle: 'Wash all washable parts',
-    videoTitle: 'Clean & Sanitize',
-    videoSub: '4. Wash all parts thoroughly and let them air-dry.',
+    title: '正确的佩戴方式和吸奶姿势',
+    subtitle: '将吸奶器放入文胸，吸奶前检查密封性',
+    videoTitle: '',
+    videoSub: '',
     tips: [
       {
         type: 'image',
-        icon: 'question',
-        title: 'Washable and Non-Washable Parts',
-        body:
-          'The pump motor is a non-washable component. Do not wash or sterilize it with water. The pump accessories are washable components. After use, rinse them with clean water and allow them to air dry completely.',
-        image: '/images/steps/04-clean-sanitize/step4tips1.png',
+        icon: 'alert',
+        title: '佩戴对位校准',
+        body: '佩戴吸奶器时需完成双维度对准：\n侧向贴合校准：使法兰平整贴合乳房表面，禁止法兰上端翘起、整体倾斜。\n中心对位校准：调整位置使乳头处于吸奶器法兰的中心轴线上，避免乳头偏移、贴靠法兰侧壁。',
+        image: `${V3}/step-04-position-cropped.png`,
       },
       {
         type: 'image',
         icon: 'question',
-        title: 'Cleaning and Sterilization Methods',
-        body:
-          'First rinse all components with clean water, then choose either boiling sterilization or microwave steam sterilizer bags for sterilization. During sterilization, avoid components touching the pot edges and other high-temperature areas. It is recommended to sterilize once daily.',
-        image: '/images/steps/04-clean-sanitize/step4tips2.png',
+        title: '稳固放入文胸',
+        body: '将吸奶器放入哺乳文胸中，并调整至与乳房贴合。必要时可收紧文胸或肩带，使吸奶器保持稳定。确认位置合适后，再开始吸奶。',
+        image: `${V3}/step-04-wear-cropped.png`,
       },
     ],
   },
   {
     num: 5,
-    title: 'Assemble the Pump',
-    subtitle: 'Snap the parts together',
-    videoTitle: 'Assemble the Pump',
-    videoSub:
-      '5. Install the valve, fit the diaphragm, then connect everything to the main unit.',
-    tips: [
-      {
-        type: 'carousel',
-        icon: 'question',
-        title: 'Assembly sequence',
-        sharedIntro:
-          'Follow the steps below to reassemble the washable parts and prepare the pump for use.',
-        frameHeight: 173,
-        slides: [
-          { image: '/images/steps/05-assemble/step5tips1.png', caption: 'Push the duckbill valve firmly into the collector base.' },
-          { image: '/images/steps/05-assemble/step5tips2.png', caption: 'Attach the collector cover and make sure both sides are aligned correctly.' },
-          { image: '/images/steps/05-assemble/step5tips3.png', caption: 'Install the silicone diaphragm and press the cap firmly into place.' },
-          { image: '/images/steps/05-assemble/step5tips4.png', caption: 'Press the assembled collector onto the main unit until secure.' },
-          { image: '/images/steps/05-assemble/step5tips5.png', caption: 'Attach the flange firmly and make sure the correct size is installed.' },
-        ],
-      },
-    ],
-  },
-  {
-    num: 6,
-    title: 'Wear It Right',
-    subtitle: 'Position for a good seal',
-    videoTitle: 'Wear It Right',
-    videoSub: '6. Slip the pump into your bra and check the seal.',
+    title: '如何选择吸力档位',
+    subtitle: '开始吸奶后，分别调节每一侧的吸力强度',
+    videoTitle: '',
+    videoSub: '',
     tips: [
       {
         type: 'image',
         icon: 'question',
-        title: 'Center and align the flange',
-        body:
-          'Center your nipple inside the flange tunnel and keep the pump sitting flat against the breast.\nIf the pump tilts or gaps appear around the flange, reposition it before pumping.',
-        images: [
-          '/images/steps/06-wear/step6tips1-1.png',
-          '/images/steps/06-wear/step6tips1-2.png',
-        ],
-      },
-      {
-        type: 'image',
-        icon: 'question',
-        title: 'Wear securely inside your bra',
-        body:
-          'Place the assembled pump inside a supportive nursing bra and adjust until it feels secure and balanced.\nA proper fit should feel gentle, stable, and evenly sealed during pumping.\nIf you hear air leakage or lose suction, reposition the pump and check that all parts are fully assembled.',
-        image: '/images/steps/06-wear/step6tips2.png',
-      },
-    ],
-  },
-  {
-    num: 7,
-    title: 'First Session',
-    subtitle: 'Begin pumping',
-    videoTitle: 'First Session',
-    videoSub: '7. Connect via the app and start your first session.',
-    tips: [
-      {
-        type: 'image',
-        icon: 'question',
-        title: 'Learn the control button',
-        body:
-          'Use the control buttons to switch modes, adjust suction levels, pause pumping, and check battery status.\nAir One begins in stimulation mode with light, fast suction to help trigger letdown.',
-        image: '/images/steps/07-first-session/step7tips1.png',
-      },
-      {
-        type: 'image',
-        icon: 'alert',
-        title: 'Pour milk slowly',
-        body:
-          'Keep the flange upright while pouring milk into a storage bottle or bag.\nAvoid tilting the pump too quickly to help prevent spills and leakage.',
-        image: '/images/steps/07-first-session/step7tips3.png',
+        title: '如何选择吸力档位',
+        body: '开始吸奶后：\n1. 选择吸奶侧：左 / 右 / 左 + 右（双侧）。\n2. 旋转旋钮，以调节吸力档位。\n3. 从最低吸力档位开始，逐渐提高吸力，直到出现轻微不适，然后将吸力调低一档，在舒适度和吸奶效率之间达到良好平衡。',
+        warning: '左右两侧乳房对吸力的耐受程度可能不同。请分别调节每一侧的吸力强度，以使两侧均能获得舒适的吸奶体验。',
+        image: `${V3}/step-05-suction-cropped.png`,
       },
     ],
   },
 ];
 
-// Cover images used on the tips index (short summary card blurb).
 export const TIP_INDEX: Array<{ title: string; blurb: string; icon: string }> = [
-  { title: 'Unbox & Inspect', blurb: 'Meet all parts.', icon: '/icon/tips1.png' },
-  { title: 'Measure Flange Size', blurb: 'Find your perfect fit.', icon: '/icon/tips2.png' },
-  { title: 'Disassemble Parts', blurb: 'Take it apart safely.', icon: '/icon/tips3.png' },
-  { title: 'Clean & Sanitize', blurb: 'Keep every part clean.', icon: '/icon/tips4.png' },
-  { title: 'Assemble the Pump', blurb: 'Put it all together.', icon: '/icon/tips5.png' },
-  { title: 'Wear It Right', blurb: 'Position and seal correctly.', icon: '/icon/tips6.png' },
-  { title: 'First Session', blurb: 'Connect and start pumping.', icon: '/icon/tips7.png' },
+  { title: '选择正确的法兰尺寸', blurb: '测量乳头直径，适配最佳尺寸', icon: '/icon/tips1.png' },
+  { title: '清洁部件', blurb: '拆卸、清洁并完成消毒', icon: '/icon/tips2.png' },
+  { title: '组装', blurb: '连接奶碗、导管与主机', icon: '/icon/tips3.png' },
+  { title: '正确佩戴', blurb: '完成对位并稳固放入文胸', icon: '/icon/tips4.png' },
+  { title: '选择吸力档位', blurb: '找到舒适高效的吸力强度', icon: '/icon/tips5.png' },
 ];

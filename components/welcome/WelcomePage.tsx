@@ -7,26 +7,26 @@ import { SkipDialog } from './SkipDialog';
 const PHASES = [
   {
     icon: '/icon/Welcome-1.png',
-    title: 'Unboxing',
-    desc: 'Open the box and get to know your parts',
-    time: '20s',
+    title: '测量与清洁',
+    desc: '选择合适的法兰尺寸并清洁部件',
+    time: '步骤 1-2',
   },
   {
     icon: '/icon/Welcome-2.png',
-    title: 'Clean & Assemble',
-    desc: 'Wash, dry, and put your pump together',
-    time: '1min20s',
+    title: '组装设备',
+    desc: '连接奶碗、导管、主机与电源适配器',
+    time: '步骤 3',
   },
   {
     icon: '/icon/Welcome-3.png',
-    title: 'First Use',
-    desc: 'Wear it and start your first session',
-    time: '2min10s',
+    title: '佩戴与吸力',
+    desc: '正确佩戴并选择舒适的吸力档位',
+    time: '步骤 4-5',
   },
 ];
 
 /**
- * The "Welcome to Air One" onboarding intro — pink gradient, hero + phase list
+ * The V3 onboarding intro — pink gradient, hero + phase list
  * + Get started. Corresponds to vanilla #welcome. Skip goes to the My Device
  * hub (`/`).
  */
@@ -49,7 +49,7 @@ export function WelcomePage() {
           WebkitBackdropFilter: 'blur(20px)',
         }}
       >
-        Skip
+        跳过
       </button>
 
       <div
@@ -80,7 +80,7 @@ export function WelcomePage() {
               letterSpacing: '-0.3px',
             }}
           >
-            Welcome to Air One
+            V3 设备助手
           </h1>
           <p
             className="mx-auto mt-0 mb-[26px] font-normal"
@@ -91,7 +91,7 @@ export function WelcomePage() {
               maxWidth: 300,
             }}
           >
-            Set up in 3 phases around 4min and pump right the first time.
+            通过 5 个步骤完成设备准备、正确佩戴与吸力设置。
           </p>
         </div>
 
@@ -138,7 +138,7 @@ export function WelcomePage() {
             className="w-full text-white font-semibold border-0 cursor-pointer active:opacity-80 transition-opacity"
             style={{ background: '#4A0612', padding: 18, borderRadius: 100, fontSize: 17 }}
           >
-            Get started
+            开始设置
           </button>
         </div>
       </div>

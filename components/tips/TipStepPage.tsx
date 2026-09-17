@@ -19,10 +19,10 @@ interface Props {
  */
 export function TipStepPage({ tipNumber }: Props) {
   const router = useRouter();
-  const idx = Math.max(1, Math.min(7, tipNumber)) - 1;
+  const idx = Math.max(1, Math.min(STEPS.length, tipNumber)) - 1;
   const step = STEPS[idx];
   const isFirst = step.num === 1;
-  const isLast = step.num === 7;
+  const isLast = step.num === STEPS.length;
 
   const videoRef = useRef<VideoPlayerHandle>(null);
   const [fsOpen, setFsOpen] = useState(false);
@@ -42,7 +42,7 @@ export function TipStepPage({ tipNumber }: Props) {
   return (
     <div className="flex flex-col h-full" style={{ background: '#FEF5F5' }}>
       <StepHeader
-        title="Air One Tips"
+        title="V3 使用提示"
         backHref="/tips"
         cozyFrom={`tips-${step.num}`}
         variant="back"
@@ -56,7 +56,7 @@ export function TipStepPage({ tipNumber }: Props) {
           className="font-semibold"
           style={{ fontSize: 13, color: '#4A0612', marginBottom: 4 }}
         >
-          Tip {step.num}
+          提示 {step.num}
         </div>
         <h2
           className="font-denton m-0"
@@ -64,12 +64,13 @@ export function TipStepPage({ tipNumber }: Props) {
             fontSize: 28,
             fontWeight: 600,
             color: '#1A1A1A',
-            marginBottom: 0,
+            marginBottom: 6,
             lineHeight: 1.2,
           }}
         >
           {step.title}
         </h2>
+        <p className="m-0 text-[13px] leading-[1.45] text-[#6F6264]">{step.subtitle}</p>
       </div>
 
       <div className="flex-1 overflow-y-auto">
@@ -77,7 +78,7 @@ export function TipStepPage({ tipNumber }: Props) {
           <VideoPlayer
             ref={videoRef}
             src={getStepVideoSrc(step.num)}
-            labelTitle="How-to video"
+            labelTitle="操作视频"
             onExpand={openFullscreen}
           />
         </div>
@@ -102,11 +103,12 @@ export function TipStepPage({ tipNumber }: Props) {
         <FullscreenVideoPlayer
           src={getStepVideoSrc(step.num)}
           stepNum={step.num}
-          stepLabel={`Tip ${step.num}`}
+          stepLabel={`提示 ${step.num}`}
+          totalSteps={STEPS.length}
           initialTime={fsInitialTime}
           hasPrev={!isFirst}
           hasNext={!isLast}
-          nextLabel="Next Tip"
+          nextLabel="下一个提示"
           onClose={closeFullscreen}
           onPrev={() => {
             setFsOpen(false);

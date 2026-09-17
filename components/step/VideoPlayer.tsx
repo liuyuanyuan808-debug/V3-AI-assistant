@@ -95,16 +95,23 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, Props>(function VideoPl
           }}
         />
       ) : (
-        <div className="w-full h-full flex items-center justify-center text-white/60 text-sm">
-          Video unavailable
+        <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-[#F4EDEF] text-[#866B70] text-sm">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+            <rect x="3" y="5" width="14" height="14" rx="2" />
+            <path d="m17 9 4-2v10l-4-2" />
+            <path d="M5 19 19 5" />
+          </svg>
+          <span>视频暂未添加</span>
         </div>
       )}
 
-      {/* 27% dark overlay when paused */}
-      <div
-        className="absolute inset-0 z-[2] pointer-events-none transition-opacity duration-200"
-        style={{ background: 'rgba(0,0,0,0.27)', opacity: playing ? 0 : 1 }}
-      />
+      {/* 27% dark overlay when a real video is paused */}
+      {src && (
+        <div
+          className="absolute inset-0 z-[2] pointer-events-none transition-opacity duration-200"
+          style={{ background: 'rgba(0,0,0,0.27)', opacity: playing ? 0 : 1 }}
+        />
+      )}
 
       {/* Big center play button when paused (uses pause hero.png like vanilla) */}
       {src && (
@@ -147,9 +154,11 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, Props>(function VideoPl
       )}
 
       {/* Bottom-left label pill */}
-      <div className="absolute bottom-3.5 left-3 z-[2] bg-black/55 text-white text-[11px] font-medium px-3 py-1 rounded-md">
-        {labelTitle} · {duration}
-      </div>
+      {src && (
+        <div className="absolute bottom-3.5 left-3 z-[2] bg-black/55 text-white text-[11px] font-medium px-3 py-1 rounded-md">
+          {labelTitle} · {duration}
+        </div>
+      )}
 
       {/* Bottom progress line */}
       <div

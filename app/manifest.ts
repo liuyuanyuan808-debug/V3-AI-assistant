@@ -2,9 +2,9 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Momcozy Air One',
+    name: 'Momcozy V3 AI 助手',
     short_name: 'Momcozy',
-    description: 'Setup guide and CozyAI assistant for the Momcozy Air One wearable breast pump.',
+    description: 'Momcozy V3 设备设置与使用助手。',
     start_url: '/',
     scope: '/',
     display: 'standalone',
