@@ -4,6 +4,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 're
 
 interface Props {
   src: string | null;
+  poster?: string | null;
   labelTitle: string;
   duration?: string; // display-only, e.g. "15s"
   autoPlay?: boolean;
@@ -23,7 +24,7 @@ export interface VideoPlayerHandle {
  * button, bottom-left "How-to video · 15s" pill, thin bottom progress line.
  */
 export const VideoPlayer = forwardRef<VideoPlayerHandle, Props>(function VideoPlayer(
-  { src, labelTitle, duration = '15s', autoPlay = true, onExpand },
+  { src, poster, labelTitle, duration = '15s', autoPlay = true, onExpand },
   ref
 ) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -93,6 +94,13 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, Props>(function VideoPl
             background:
               'linear-gradient(135deg, #E8C5C9 0%, #D9A8AE 100%)',
           }}
+        />
+      ) : poster ? (
+        <img
+          src={poster}
+          alt=""
+          draggable={false}
+          className="w-full h-full object-contain block select-none bg-black"
         />
       ) : (
         <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-[#F4EDEF] text-[#866B70] text-sm">

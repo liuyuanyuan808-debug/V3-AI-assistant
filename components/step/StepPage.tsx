@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { STEPS } from '@/lib/steps/data';
-import { getStepVideoSrc } from '@/lib/steps/video';
+import { getStepVideoPoster, getStepVideoSrc } from '@/lib/steps/video';
 import { StepHeader } from './StepHeader';
 import { ProgressBar } from './ProgressBar';
 import { VideoPlayer, type VideoPlayerHandle } from './VideoPlayer';
@@ -104,6 +104,7 @@ export function StepPage({ stepNumber }: Props) {
             <VideoPlayer
               ref={videoRef}
               src={getStepVideoSrc(step.num)}
+              poster={getStepVideoPoster(step.num)}
               labelTitle="操作视频"
               onExpand={openFullscreen}
             />

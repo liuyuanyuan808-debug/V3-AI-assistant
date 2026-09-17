@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { STEPS } from '@/lib/steps/data';
-import { getStepVideoSrc } from '@/lib/steps/video';
+import { getStepVideoPoster, getStepVideoSrc } from '@/lib/steps/video';
 import { StepHeader } from '@/components/step/StepHeader';
 import { VideoPlayer, type VideoPlayerHandle } from '@/components/step/VideoPlayer';
 import { FullscreenVideoPlayer } from '@/components/step/FullscreenVideoPlayer';
@@ -78,6 +78,7 @@ export function TipStepPage({ tipNumber }: Props) {
           <VideoPlayer
             ref={videoRef}
             src={getStepVideoSrc(step.num)}
+            poster={getStepVideoPoster(step.num)}
             labelTitle="操作视频"
             onExpand={openFullscreen}
           />
